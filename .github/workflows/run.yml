@@ -30,4 +30,4 @@ jobs:
           npm ci
       - name: 'Run'
         run: |
-          CYPRESS_BP_USERNAME=${{ secrets.BP_USERNAME }} CYPRESS_BP_PASSWORD=${{ secrets.BP_PASSWORD }} CYPRESS_BP_DATE=${{ secrets.BP_DATE }} npm run check
+          CYPRESS_BP_USERNAME="${{ secrets.BP_USERNAME }}" CYPRESS_BP_PASSWORD="${{ secrets.BP_PASSWORD }}" CYPRESS_BP_DATE="${{ secrets.BP_DATE }}" npm run check
