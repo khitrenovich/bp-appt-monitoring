@@ -8,11 +8,13 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron:  '*/5 * * * *'
 
 env:
   CI: true
   FORCE_COLOR: true
-  BP_DATE: currently available
+  BP_DATE: Dec 28
 
 jobs:
 
@@ -40,9 +42,8 @@ jobs:
 #          path: cypress/videos/
       - name: 'Notify Slack'
         uses: lazy-actions/slatify@v3.0.0
-#        if: success() && (github.ref == 'refs/heads/master')
         if: success()
         with:
           url: ${{ secrets.SLACK_WEBHOOK }}
           type: ${{ job.status }}
-          job_name: 'Found Project Beacon appointment for ${{ env.BP_DATE }}'
+          job_name: 'Found Project Beacon appointment for ${{ env.BP_DATE }} -'
