@@ -32,3 +32,9 @@ jobs:
       - name: 'Run'
         run: |
           CYPRESS_BP_USERNAME="${{ secrets.BP_USERNAME }}" CYPRESS_BP_PASSWORD="${{ secrets.BP_PASSWORD }}" CYPRESS_BP_DATE="${{ env.BP_DATE }}" npm run check
+      - name: 'Store Cypress Videos'
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-videos
+          path: cypress/videos/
