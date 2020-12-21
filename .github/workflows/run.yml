@@ -38,3 +38,11 @@ jobs:
 #        with:
 #          name: cypress-videos
 #          path: cypress/videos/
+      - name: 'Notify Slack'
+        uses: lazy-actions/slatify@v3.0.0
+#        if: success() && (github.ref == 'refs/heads/master')
+        if: success()
+        with:
+          url: ${{ secrets.SLACK_WEBHOOK }}
+          type: ${{ job.status }}
+          job_name: 'Found Project Beacon appointment for ${{ env.BP_DATE }}'
