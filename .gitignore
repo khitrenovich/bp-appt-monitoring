@@ -8,3 +8,7 @@ node_modules/
 
 # IDE
 .idea/
+
+# Cypress
+cypress/
+cypress.env.json

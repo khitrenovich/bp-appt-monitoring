@@ -1,0 +1,11 @@
+{
+  "baseUrl": "https://app.beacontesting.com/",
+  "integrationFolder": ".",
+  "testFiles": "monitoring.js",
+  "env": {
+    "BP_USERNAME": "me@gmail.com",
+    "BP_PASSWORD": "MyPa$$w0rd",
+    "BP_DATE": "Dec 01"
+  },
+  "defaultCommandTimeout": 20000
+}

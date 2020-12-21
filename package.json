@@ -1,0 +1,23 @@
+{
+  "name": "bp-appt-monitoring",
+  "version": "1.0.0",
+  "description": "Beacon Project Appointments Monitoring",
+  "main": "index.js",
+  "scripts": {
+    "cy": "cypress open",
+    "check": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khitrenovich/bp-appt-monitoring.git"
+  },
+  "author": "Anton Khitrenovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khitrenovich/bp-appt-monitoring/issues"
+  },
+  "homepage": "https://github.com/khitrenovich/bp-appt-monitoring#readme",
+  "dependencies": {
+    "cypress": "^6.2.0"
+  }
+}
