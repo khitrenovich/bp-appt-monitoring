@@ -1,6 +1,6 @@
 name: Run
 
-# Build runs on master merges and pull request changes
+# Build runs on schedule, on master merges and pull request changes
 on:
   push:
     branches:
