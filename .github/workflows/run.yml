@@ -14,13 +14,15 @@ on:
 env:
   CI: true
   FORCE_COLOR: true
-  BP_DATE: Dec 28
 
 jobs:
 
   build:
     name: 'Run'
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        date: ['Dec 28', 'Dec 29']
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
@@ -33,7 +35,7 @@ jobs:
           npm ci
       - name: 'Run'
         run: |
-          CYPRESS_BP_USERNAME="${{ secrets.BP_USERNAME }}" CYPRESS_BP_PASSWORD="${{ secrets.BP_PASSWORD }}" CYPRESS_BP_DATE="${{ env.BP_DATE }}" npm run check
+          CYPRESS_BP_USERNAME="${{ secrets.BP_USERNAME }}" CYPRESS_BP_PASSWORD="${{ secrets.BP_PASSWORD }}" CYPRESS_BP_DATE="${{ matrix.date }}" npm run check
 #      - name: 'Store Cypress Videos'
 #        uses: actions/upload-artifact@v2
 #        if: failure()
@@ -46,4 +48,4 @@ jobs:
         with:
           url: ${{ secrets.SLACK_WEBHOOK }}
           type: ${{ job.status }}
-          job_name: 'Found Project Beacon appointment for ${{ env.BP_DATE }} -'
+          job_name: 'Found Project Beacon appointment for ${{ matrix.date }} -'
