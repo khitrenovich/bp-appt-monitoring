@@ -3,7 +3,7 @@ const USERNAME = Cypress.env('BP_USERNAME');
 const PASSWORD = Cypress.env('BP_PASSWORD');
 const DATE = Cypress.env('BP_DATE');
 
-describe('Moniroring', () => {
+describe('Monitoring', () => {
 
   it('look for appointments by date', () => {
 
@@ -26,6 +26,10 @@ describe('Moniroring', () => {
     cy
       .get('form ul')
       .should('contain', DATE);
+
+    // Write success marker
+    cy
+      .writeFile('success.txt', DATE)
 
   });
 
