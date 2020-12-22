@@ -35,16 +35,18 @@ jobs:
           npm ci
       - name: 'Run'
         run: |
-          CYPRESS_BP_USERNAME="${{ secrets.BP_USERNAME }}" CYPRESS_BP_PASSWORD="${{ secrets.BP_PASSWORD }}" CYPRESS_BP_DATE="${{ matrix.date }}" npm run check
-#      - name: 'Store Cypress Videos'
-#        uses: actions/upload-artifact@v2
-#        if: failure()
-#        with:
-#          name: cypress-videos
-#          path: cypress/videos/
+          # Run Cypress, but suppress exit code
+          CYPRESS_BP_USERNAME="${{ secrets.BP_USERNAME }}" CYPRESS_BP_PASSWORD="${{ secrets.BP_PASSWORD }}" CYPRESS_BP_DATE="${{ matrix.date }}" npm run monitoring
+          exit 0
+        shell: bash {0}
+      - name: 'Check Monitoring Status'
+        id: 'check_status'
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'success.txt'
       - name: 'Notify Slack'
         uses: lazy-actions/slatify@v3.0.0
-        if: success()
+        if: (steps.check_status.outputs.files_exists == 'true')
         with:
           url: ${{ secrets.SLACK_WEBHOOK }}
           type: ${{ job.status }}

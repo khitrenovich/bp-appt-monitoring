@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy": "cypress open",
-    "check": "cypress run"
+    "monitoring": "cypress run"
   },
   "repository": {
     "type": "git",
