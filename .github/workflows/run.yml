@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        date: ['Jan 11', 'Jan 13']
+        date: ['Jan 13']
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
