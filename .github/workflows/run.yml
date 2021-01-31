@@ -51,4 +51,4 @@ jobs:
         with:
           url: ${{ secrets.SLACK_WEBHOOK }}
           type: ${{ job.status }}
-          job_name: 'Found Project Beacon appointment for ${{ matrix.date }} -'
+          job_name: 'Found Project Beacon appointment in ${{ matrix.location }} for ${{ matrix.date }} -'
