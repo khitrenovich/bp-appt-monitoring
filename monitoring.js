@@ -1,6 +1,7 @@
 
 const USERNAME = Cypress.env('BP_USERNAME');
 const PASSWORD = Cypress.env('BP_PASSWORD');
+const LOCATION = Cypress.env('BP_LOCATION');
 const DATE = Cypress.env('BP_DATE');
 
 describe('Monitoring', () => {
@@ -25,6 +26,7 @@ describe('Monitoring', () => {
     // Look for date in "next available" list
     cy
       .get('form ul')
+      .contains('li', LOCATION)
       .should('contain', DATE);
 
     // Write success marker
