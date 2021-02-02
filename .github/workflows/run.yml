@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        location: ['Framingham' ]
-        date: ['Feb 2', 'Feb 4']
+        location: ['Framingham']
+        date: ['Feb 2', 'Feb 3', 'Feb 4']
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
