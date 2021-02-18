@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         location: ['Framingham']
-        date: ['Feb 10']
+        date: ['Feb 22', 'Feb 23', 'Feb 24']
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
