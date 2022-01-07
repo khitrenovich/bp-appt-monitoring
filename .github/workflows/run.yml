@@ -24,7 +24,7 @@ jobs:
     strategy:
       matrix:
         location: ['Bedford']
-        date: ['No appointments']
+        date: ['Jan']
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
