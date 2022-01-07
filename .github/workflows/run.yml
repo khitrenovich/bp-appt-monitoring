@@ -2,6 +2,7 @@ name: Run
 
 # Build runs on schedule, on master merges and pull request changes
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
