@@ -16,6 +16,9 @@ describe('Monitoring', () => {
       .clear()
       .type(USERNAME);
     cy
+      .get('button[type=submit]')
+      .click();
+    cy
       .get('#password')
       .clear()
       .type(PASSWORD);
