@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        location: ['Bedford']
+        location: ['Bedford', 'Lynn', 'Revere']
         date: ['Jan']
     steps:
       - name: 'Checkout'
